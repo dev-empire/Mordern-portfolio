@@ -1,0 +1,226 @@
+@import 'config';
+@import 'menu';
+
+* {
+   box-sizing: border-box;
+}
+
+body {
+   @include bacground();
+   background: $primary-color;
+   color: set-text-color($primary-color);
+   line-height: 100%;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   line-height: 1.5;
+}
+
+;
+
+h1,
+h2,
+h3 {
+   font-weight: 300;
+
+   &.lg-heading {
+      font-size: 5rem;
+   }
+
+   ;
+
+   &.sm-heading {
+      margin-bottom: 1.5rem;
+      padding: 0.2rem 1rem;
+      background: rgba(lighten($primary-color, 5), 0.5);
+   }
+
+   ;
+}
+
+;
+
+a {
+   color: #fff;
+   text-decoration: none;
+}
+
+;
+
+header {
+   z-index: 2;
+}
+
+;
+
+.text-secondary {
+   color: $secondary-color;
+}
+
+;
+
+// main attribute styling
+main {
+   overflow: hidden;
+   min-height: calc(100vh - 60px);
+   padding: 3rem;
+
+   .icon {
+      margin-top: 1rem;
+
+      a {
+         padding: 0.4rem;
+
+         &:hover {
+            color: $secondary-color;
+            @include easeOut()
+         }
+      }
+   }
+
+   &#home {
+      overflow: hidden;
+
+      h1 {
+         margin-top: 18vh;
+      }
+
+      h2 {
+         margin-top: 4vh;
+      }
+   }
+
+   &#work {
+      overflow: hidden;
+   }
+}
+
+
+// about stylies
+.about-info {
+   display: grid;
+   grid-gap: 30px;
+   grid-template-areas:
+      'bioimage bio bio'
+      'job-1 job-2 job-3';
+   grid-template-columns: repeat(3, 1fr);
+
+// boi image style
+   .bio-image {
+      grid-area: bioimage;
+      margin: auto;
+      border-radius: 50%;
+      border: $secondary-color 2px solid;
+   }
+
+   .bio {
+      grid-area: bio;
+      font-size: 1rem;
+   }
+
+   .job-1 {
+      grid-area: job-1;
+   }
+
+   .job-2 {
+      grid-area: job-2;
+   }
+
+   .job-3 {
+      grid-area: job-3;
+   }
+
+   .job {
+      text-align: center;
+      background: lighten($color: $primary-color, $amount: 5);
+      border-bottom: $secondary-color 5px solid;
+
+      p {
+         padding: 10px;
+         font-weight: 200;
+      }
+   }
+}
+
+// work sytling
+
+.projects {
+   overflow: hidden;
+   display: grid;
+   grid-gap: 0.7rem;
+   grid-template-columns: repeat(3, 1fr);
+
+   img {
+      width: 100%;
+      border: 3px solid #fff;
+
+      &:hover {
+         opacity: 0.5;
+         border-color: $secondary-color;
+         @include easeOut();
+      }
+   }
+}
+
+//contact page styles
+.boxes {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+   align-items: center;
+   margin-top: 1rem;
+
+   div {
+      border: 3px #fff solid;
+      padding: 1.5rem 1.5rem;
+      margin-bottom: 3rem;
+      @include easeOut();
+
+      &:hover {
+         font-size: 1.1rem;
+         padding: .3rem 1.5rem;
+         background: $secondary-color;
+         color: set-text-color($secondary-color);
+
+         span {
+            color: set-text-color($secondary-color)
+         }
+      }
+   }
+}
+
+//btn styles
+.btn {
+   display: block;
+   padding: 0.5rem 1rem;
+   border: 0;
+   margin-bottom: 0.3rem;
+
+   &:hover {
+      background-color: $secondary-color;
+      color: set-text-color($primary-color);
+   }
+}
+
+.btn-dark {
+   @extend .btn;
+   background: darken($color: $primary-color, $amount: 50);
+   color: #fff;
+}
+
+.btn-light {
+   @extend .btn;
+   background: lighten($color: $primary-color, $amount: 50);
+   color: #333;
+}
+
+//footer styling
+#main-footer {
+   text-align: center;
+   padding: 1rem;
+   background: darken($color: $primary-color, $amount: 5);
+   color: set-text-color($primary-color);
+   height: 60px;
+}
+
+
+
+@import 'mobile';
